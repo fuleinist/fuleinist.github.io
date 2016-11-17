@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>Aframe Earth Moon</title>
+    <link rel="stylesheet" href="css/animate.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+	<div class="scene-container" style="height: 100%; width: 100%">
+		<a-scene>
+			<a-assets>
+				<img id="earth" crossOrigin src="assets/earth.jpg" />
+				<img id="moon" crossOrigin src="assets/moon.jpg" />
+			</a-assets>
+			<a-entity id="Earth-Moon">
+				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" >
+					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+				</a-sphere>
+				<a-entity position="200 0 200" >
+					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 -360 0" repeat="indefinite"></a-animation>
+					<a-sphere position="-400 0 80" radius="20" material="src: #moon;roughness: 1; metalness: 0;" >
+						<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+					</a-sphere>
+				</a-entity>
+				<a-entity geometry="primitive: sphere;
+						  radius: 7000;
+						  segmentsWidth: 64;
+						  segmentsHeight: 64" material="shader: flat; 
+						  src: url(assets/Stars.jpg);
+						  color: #FFF;
+						  opacity: 1;
+						  fog: false" rotation="0 45 -180" scale="-1 1 1">
+				</a-entity>
+				<a-entity light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
+			</a-entity>
+		</a-scene>
+	</div>
+</body>
+</html>

@@ -90,45 +90,7 @@
 	<a-entity id="slide" position="-5 5 0" set-image="on: click; target: #image-360; src: #para0" target-src="#para0" ></a-entity>
   </a-scene>
 </body>
-	<script type="text/javascript" >
-	        console.log(WebVRConfig);
-		var scene = document.querySelector('a-scene');
-		if(!getCookie("userID")) {
-			var userID = randomString(4);
-			document.cookie = ("userID="+userID+"; ");
-		} else {
-			var userID = getCookie("userID");
-		}
-		if(!getCookie("surveyID")) {
-			var surveyID = userID + randomString(3);
-			document.cookie = ("surveyID="+surveyID);
-		} else {
-			var surveyID = getCookie("surveyID");
-		}
-		var num = 1;
-		if(!getCookie("username")||!getCookie("email")) {
-			var uName = prompt("Please enter your name", "John Smith");
-			var uEmail = prompt("Please enter your name", "123@aframe.com");
-			document.cookie = ("username="+uName+"; ");
-			document.cookie = ("email="+uEmail+"; ");
-			console.log(document.cookie);
-		} else {
-			var uName = getCookie("username");
-			var uEmail = getCookie("email");
-		}
-		var user = writeUserData(userID, uName, uEmail);
-		var camera = document.querySelector('#camera');
-		var cube = document.querySelector('#thecube');
-		
-		function sData(uID, sID, sTime,feedback) {
-			this.userID = uID;
-			this.surveyID = sID;
-			this.SessionTime = sTime;
-			this.feedback = feedback;
-		}
-		
-		var surveydata =  new sData(userID,surveyID,Date.now(),{answers: {} });
-		
+	<script type="text/javascript" >	
 		var i=1;
 		var z_pos = 20;
 		var current_question = document.querySelector(('#q'+i).toString());
@@ -161,7 +123,7 @@
 					thankyoutext.setAttribute('mixin', 'white');
 					thankyoutext.setAttribute('position', '-5 0 -10');					
 					document.querySelector('#camera').appendChild(thankyoutext);	cube.emit('show'); vrcursor.emit('hide');
-					writeSurveyData(surveydata.userID, surveydata.surveyID, surveydata.SessionTime, surveydata.feedback);
+					//writeSurveyData(surveydata.userID, surveydata.surveyID, surveydata.SessionTime, surveydata.feedback);
 				}
 				else {
 					console.log(next_question);

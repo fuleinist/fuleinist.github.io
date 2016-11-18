@@ -24,7 +24,7 @@
 						<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 					</a-sphere>
 				</a-entity>
-				<a-entity geometry="primitive: sphere;
+				<a-entity id="starBG" geometry="primitive: sphere;
 						  radius: 7000;
 						  segmentsWidth: 64;
 						  segmentsHeight: 64" material="shader: flat; 
@@ -33,7 +33,8 @@
 						  opacity: 1;
 						  fog: false" rotation="0 45 -180" scale="-1 1 1">
 				</a-entity>
-				<a-entity light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
+				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
+				<a-entity id="pointLight" light="type:point" position="0 5.4 3"></a-entity>
 			</a-entity>
 		</a-scene>
 	</div>

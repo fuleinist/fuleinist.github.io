@@ -152,11 +152,11 @@
 		
 		function slide() {
 			var imgs360 = document.querySelectorAll('.skybg');				
-			var imgframe = document.querySelector('#slide');
+			var imgframe = document.querySelector('#image-360');
 			var num = 1;
 			if(imgs360[num]) {
 				console.log(imgs360[num]);
-				imgframe.setAttribute("target-src","#" + imgs360[num].getAttribute('id'));
+				imgframe.setAttribute("src","#" + imgs360[num].getAttribute('id'));
 				num++;
 				imgframe.emit('click');
 			} else {

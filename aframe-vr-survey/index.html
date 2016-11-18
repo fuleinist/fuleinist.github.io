@@ -1,0 +1,221 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+	<script src="//rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+	<script src="//rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <title>Aframe VR Survey</title>
+  </head>
+<body>
+  <a-scene>
+  <a-assets>
+	  <img id="imgloading" src="loading.png">
+	  <img id="para0" class="skybg" crossOrigin src="Two Rocks Beach at Moonset.jpg">
+	  <img id="para1" class="skybg" crossOrigin src="Myrmidon.jpg">
+	  <img id="para2" class="skybg" crossOrigin src="opera house1.jpg">
+	  <img id="para3" class="skybg" crossOrigin src="puydesancy.jpg">
+	  <img id="para4" class="skybg" crossOrigin src="Rottnest.jpg">
+	  <audio id="click-sound" src="click.wav"></audio>
+  </a-assets>
+  <a-entity position="0 2 4">
+	  <a-entity id="camera" camera look-controls wasd-controls fov="120">
+		<a-entity position="0 0 -2" id="cursor"
+				geometry="primitive:ring; radiusInner:0.05; radiusOuter:0.1;"
+				material="shader: flat;color: white" 
+				cursor="fuse: true; fuseTimeout: 1000" 
+				>
+			<a-animation begin="click" attribute="geometry.radiusInner"  easing="ease-in" fill="backwards" from="0" to="0.05" dur="150"></a-animation>
+			<a-animation begin="mouseenter" attribute="material.color"  easing="ease-in" fill="forwards" to="springgreen" dur="10"></a-animation>
+			<a-animation begin="mouseleave" attribute="material.color"  easing="ease-in" fill="forwards" to="white" dur="10"></a-animation>
+			<a-animation begin="cursor-fusing" attribute="geometry.radiusInner"  easing="ease-in" fill="forwards" from="0.05" to="0" dur="1000"></a-animation>
+			<a-animation begin="hide" attribute="visible"  easing="ease-in" fill="forwards"  to="false" dur="5000"></a-animation>				
+		</a-entity>
+	  </a-entity>
+  </a-entity>
+
+  <a-sky id="image-360" radius="100" rotation="0 -130 0" src="#para0">
+    <a-animation attribute="rotation"
+               dur="500000"
+               fill="forwards"
+			   easing="linear"
+               to="0 360 0"
+               repeat="indefinite"></a-animation>
+  </a-sky>
+  <a-entity id="q1" class="question" position="0 0 0">  
+	<a-entity text="text: What is the largest animal on Earth?" material="color: white" id="qa" position="-5 5 -5" ></a-entity>
+	<a-entity geometry="primitive: box;" material="color: white;opacity:0" class="option" value="Bear" position="-5 0 -5" sound="on: click; src: #click-sound">    
+		<a-entity text="text: Bear" position="-0.1 -0.5 0" ></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+				   fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+    </a-entity>
+	<a-entity class="option" value="Mice" position="0 0 -5"  sound="on: click; src: #click-sound">
+		<a-entity text="text: Mice" mixin="white" position="-1 -0.5 0" ></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+				   fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+	</a-entity>
+	<a-entity class="option" value="Whale" position="5 0 -5"  sound="on: click; src: #click-sound">
+		<a-entity text="text: Whale" position="-1 -0.5 0" ></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+               fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+	</a-entity>
+	<a-entity position="0 -5 -3">	
+		<a-entity class="next"  text="text: Next >" mixin="white" position="-2 0 0" id="next" material="color: white" sound="on: click; src: #click-sound"></a-entity>
+		<a-animation id="nextmove" attribute="position" to="" begin="next" dur="500" fill="forwards" easing="ease-in"></a-animation>
+	</a-entity>
+  </a-entity>
+
+  <a-entity id="q2" position="0 0 -20" class="question">  
+	<a-entity text="text: Which one is your favarate car?" id="qa" position="-5 5 -5" material="color: #aaa;"></a-entity>
+	<a-entity class="option" value="Volvo" position="-5 0 -5" geometry="primitive: box;" material="color: white;opacity:0" >    
+		<a-entity text="text: Volvo" position="-0.7 -0.2 0"></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+				   fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+    </a-entity>
+	<a-entity class="option" value="Saab" position="0 0 -5" geometry="primitive: box;" material="color: white;opacity:0">
+		<a-entity text="text: Saab" position="-0.7 -0.2 0"></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+				   fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+	</a-entity>
+	<a-entity class="option" value="Mercedes" position="5 0 -5" geometry="primitive: box;" material="color: white;opacity:0">
+		<a-entity text="text: Mercedes" position="-0.7 -0.2 0"></a-entity>
+		<a-animation begin="click" easing="ease-in" attribute="scale"
+               fill="forwards" from="1 1 1" to="1.1 1.1 1.1"></a-animation>
+	</a-entity>
+	<a-entity position="0 -5 -3">	
+		<a-entity class="next"  text="text: Next >" mixin="white" position="-2 0 0" id="next" material="color: white" sound="on: click; src: #click-sound"></a-entity>
+		<a-animation id="nextmove" attribute="position" to="" begin="next" dur="500" fill="forwards" easing="ease-in"></a-animation>
+	</a-entity>
+  </a-entity>  
+	<a-entity id="slide" position="-5 5 0" set-image="on: click; target: #image-360; src: #para0" target-src="#para0" ></a-entity>
+  </a-scene>
+</body>
+	<script type="text/javascript" >
+	console.log(WebVRConfig);
+		var scene = document.querySelector('a-scene');
+		if(!getCookie("userID")) {
+			var userID = randomString(4);
+			document.cookie = ("userID="+userID+"; ");
+		} else {
+			var userID = getCookie("userID");
+		}
+		if(!getCookie("surveyID")) {
+			var surveyID = userID + randomString(3);
+			document.cookie = ("surveyID="+surveyID);
+		} else {
+			var surveyID = getCookie("surveyID");
+		}
+		var num = 1;
+		if(!getCookie("username")||!getCookie("email")) {
+			var uName = prompt("Please enter your name", "John Smith");
+			var uEmail = prompt("Please enter your name", "123@aframe.com");
+			document.cookie = ("username="+uName+"; ");
+			document.cookie = ("email="+uEmail+"; ");
+			console.log(document.cookie);
+		} else {
+			var uName = getCookie("username");
+			var uEmail = getCookie("email");
+		}
+		var user = writeUserData(userID, uName, uEmail);
+		var camera = document.querySelector('#camera');
+		var cube = document.querySelector('#thecube');
+		
+		function sData(uID, sID, sTime,feedback) {
+			this.userID = uID;
+			this.surveyID = sID;
+			this.SessionTime = sTime;
+			this.feedback = feedback;
+		}
+		
+		var surveydata =  new sData(userID,surveyID,Date.now(),{answers: {} });
+		
+		var i=1;
+		var z_pos = 20;
+		var current_question = document.querySelector(('#q'+i).toString());
+		var next_question = document.querySelector(('#q'+(i+1)).toString());
+		var vrcursor = document.querySelector('#cursor');
+		var options = document.querySelectorAll('.option');
+		for (j = 0; j < options.length; j++) {	
+			options[j].addEventListener('click', function() {
+				if( this.parentNode.querySelector('#answer') ) {this.parentNode.removeChild(this.parentNode.querySelector('#answer'));}
+				var selected = this.getAttribute('value'); 
+				var textentity = document.createElement('a-entity');
+				textentity.setAttribute('text', 'text: You selected ' + selected);
+				textentity.setAttribute('id', 'answer');
+				textentity.setAttribute('mixin', 'white');
+				textentity.setAttribute('position', '-5 3 -5');
+				this.parentNode.appendChild(textentity);
+				surveydata.feedback.answers[this.parentNode.getAttribute('id')] = this.getAttribute('value');
+				console.log(surveydata.feedback);
+			});
+		};
+		var next_buttons = document.querySelectorAll('.next');
+		for (k = 0; k < next_buttons.length; k++) {			
+			next_buttons[k].addEventListener('click', function() {
+				this.parentNode.parentNode.querySelector('#nextmove').setAttribute("to","0 0 " +z_pos * (i-2));
+				this.parentNode.parentNode.setAttribute("visible","false");								
+				if( next_question == null ) {
+					var thankyoutext = document.createElement('a-entity');
+					thankyoutext.setAttribute('text', 'text: Thanks for participating the survey!');
+					thankyoutext.setAttribute('id', 'thanks');
+					thankyoutext.setAttribute('mixin', 'white');
+					thankyoutext.setAttribute('position', '-5 0 -10');					
+					document.querySelector('#camera').appendChild(thankyoutext);	cube.emit('show'); vrcursor.emit('hide');
+					writeSurveyData(surveydata.userID, surveydata.surveyID, surveydata.SessionTime, surveydata.feedback);
+				}
+				else {
+					console.log(next_question);
+					next_question.setAttribute("position","0 0 " +z_pos * (i-1));
+					next_question.emit('next');
+					i++; 
+				}
+				slide();
+				current_question = document.querySelector(('#q'+i).toString());
+				next_question = document.querySelector(('#q'+(i+1)).toString());
+				
+				
+			});
+		};		
+
+		function randomString(string_length) {
+			var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+			var randomstring = '';
+			for (var i=0; i<string_length; i++) {
+				var rnum = Math.floor(Math.random() * chars.length);
+				randomstring += chars.substring(rnum,rnum+1);
+			}
+			return randomstring;
+		}	
+		
+		
+		function slide() {
+			var imgs360 = document.querySelectorAll('.skybg');				
+			var imgframe = document.querySelector('#slide');
+			
+			if(imgs360[num]) {
+				console.log(imgs360[num]);
+				imgframe.setAttribute("target-src","#" + imgs360[num].getAttribute('id'));
+				num++;
+				imgframe.emit('click');
+			} else {
+				num = 0;
+			}
+		}
+		
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for(var i = 0; i <ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') {
+					c = c.substring(1);
+				}
+				if (c.indexOf(name) == 0) {
+					return c.substring(name.length,c.length);
+				}
+			}
+			return "";
+		}
+	</script>
+</html>

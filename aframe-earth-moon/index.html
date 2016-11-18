@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Aframe Earth Moon</title>
     <script type="text/javascript" src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/kframe/tree/master/components/sun-sky/dist/aframe-sun-sky.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
@@ -13,6 +14,7 @@
 				<img id="earth" crossOrigin src="assets/earth.jpg" />
 				<img id="moon" crossOrigin src="assets/moon.jpg" />
 			</a-assets>
+			<a-sun-sky></a-sun-sky>
 			<a-entity id="Earth-Moon">
 				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" >
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>

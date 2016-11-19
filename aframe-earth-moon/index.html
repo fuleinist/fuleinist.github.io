@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Aframe Earth Moon</title>
     <script type="text/javascript" src="js/aframe.min.js"></script>
+    <script src="https://rawgit.com/andreasplesch/aframe-faceset-component/master/dist/aframe-faceset-component.min.js"></script> 
+    <script src="https://rawgit.com/andreasplesch/aframe-star-component/master/dist/aframe-star-component.min.js"></script> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 </head>
 <body>
@@ -34,6 +36,7 @@
 				</a-entity>
 				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
 			</a-entity>
+			<a-entity star="points: 23"></a-entity>
 		</a-scene>
 	</div>
 </body>

@@ -14,8 +14,8 @@
 				<img id="moon" crossOrigin src="assets/moon.jpg" />
 			</a-assets>
 			<a-entity id="Earth-Moon">
-				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" >
-					<a-entity position="0 0 125"  scale="6 6 6" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:0.46;radiusOuter:0.82;segmentsPhi:10;segmentsTheta:30" rotation="0 5.190082199999714 0" visible="true" look-at="#TheEarth" id="point" />
+				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" id="TheEarth">
+					<a-entity position="0 0 125"  scale="6 6 6" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:0.46;radiusOuter:0.82;segmentsPhi:10;segmentsTheta:30" rotation="0 5.190082199999714 0" visible="true" look-at="#TheEarth" id="point" ></a-entity>
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 				</a-sphere>
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>

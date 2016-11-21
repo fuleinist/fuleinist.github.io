@@ -14,10 +14,7 @@
 				<img id="moon" crossOrigin src="assets/moon.jpg" />
 			</a-assets>
 			<a-entity id="Earth-Moon">
-				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" id="TheEarth">
-					<a-entity position="0 0 125"  scale="6 6 6" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:0.46;radiusOuter:0.82;segmentsPhi:10;segmentsTheta:30" rotation="0 5.190082199999714 0" visible="true" look-at="#TheEarth" id="point" ></a-entity>
-					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
-				</a-sphere>
+				<a-sphere position="200 0 200" radius="20" scale="6 6 6" material="src: #earth;roughness: 1; metalness: 0.2;" id="TheEarth">				
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 				</a-sphere>
 				<a-entity position="200 0 200" >
@@ -35,6 +32,7 @@
 						  opacity: 1;
 						  fog: false" rotation="0 45 -180" scale="-1 1 1">
 				</a-entity>
+				<a-entity position="200 0 325" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:1;radiusOuter:2.4;segmentsPhi:10;segmentsTheta:30" visible="true" look-at="#TheEarth" id="point" ></a-entity>
 				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
 			</a-entity>
 		</a-scene>

@@ -22,6 +22,7 @@
 					<a-sphere position="-400 0 80" radius="20" material="src: #moon;roughness: 1; metalness: 0;" >
 						<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 					</a-sphere>
+					<a-entity position="0 0 125" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:1;radiusOuter:2.4;segmentsPhi:10;segmentsTheta:30" visible="true" look-at="#TheEarth" id="point" ></a-entity>
 				</a-entity>
 				<a-entity id="starBG" geometry="primitive: sphere;
 						  radius: 7000;
@@ -32,7 +33,6 @@
 						  opacity: 1;
 						  fog: false" rotation="0 45 -180" scale="-1 1 1">
 				</a-entity>
-				<a-entity position="200 0 325" material="shader:flat;side:double;color:#0080c0" geometry="primitive:ring;radius:20;radiusInner:1;radiusOuter:2.4;segmentsPhi:10;segmentsTheta:30" visible="true" look-at="#TheEarth" id="point" ></a-entity>
 				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
 			</a-entity>
 		</a-scene>

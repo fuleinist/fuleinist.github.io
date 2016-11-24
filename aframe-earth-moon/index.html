@@ -19,30 +19,31 @@
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 				</a-sphere>					
 				<a-entity position="200 0 200" >
-					<a-entity>
-						<a-sphere position="-400 0 80" radius="20" material="src: #moon;roughness: 1; metalness: 0;" >
-							<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
-						</a-sphere>
-					</a-entity>
+					<a-sphere position="-400 0 80" radius="20" material="src: #moon;roughness: 1; metalness: 0;" >
+						<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
+					</a-sphere>
+					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 -360 0" repeat="indefinite"></a-animation>
+				</a-entity>
+				<a-entity position="200 0 200" >
 					<a-entity rotation="0 -30 30" >
-						<a-sphere look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
-						</a-sphere>
+						<a-entity id="au_geo" look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
+						</a-entity>
 					</a-entity>
-					<a-entity rotation="0 -50 10" >
-						<a-sphere look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
-						</a-sphere>
+					<a-entity rotation="0 -50 5" >
+						<a-entity id="sg_geo" look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
+						</a-entity>
 					</a-entity>
-					<a-entity rotation="0 -40 -27" >
-						<a-sphere look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
-						</a-sphere>
+					<a-entity rotation="0 -60.5 -27" >
+						<a-entity id="sh_geo" look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
+						</a-entity>
 					</a-entity>
-					<a-entity  rotation="0 -42 -23" >
-						<a-sphere look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
-						</a-sphere>
+					<a-entity rotation="0 -60 -23" >
+						<a-entity id="tp_geo" look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
+						</a-entity>
 					</a-entity>
-					<a-entity rotation="0 -45 -30" >
-						<a-sphere look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
-						</a-sphere>
+					<a-entity rotation="0 -62 -35" >
+						<a-entity id="bj_geo" look-at="#theCam" position="-125 0 0" material="roughness:1;metalness:0;side:double;shader:flat" geometry="primitive:ring;radiusInner:4;radiusOuter:2" rotation="0 0 0" scale="1 1 1" visible="true">
+						</a-entity>
 					</a-entity>
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 				</a-entity>

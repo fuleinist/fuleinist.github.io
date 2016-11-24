@@ -61,6 +61,15 @@
 							</a-entity>
 						</a-entity>
 					</a-entity>
+					<a-entity rotation="0 0 0">
+						<a-camera id="theCam" position="0 -225 0">
+							 <a-entity cursor="fuse: true; fuseTimeout: 500"
+								    position="0 0 -25"
+								    geometry="primitive: ring"
+								    material="color: white; shader: flat">
+							  </a-entity>
+						</a-camera>
+					</a-entity>
 					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>
 				</a-entity>
 				<a-entity id="starBG" geometry="primitive: sphere;
@@ -73,15 +82,6 @@
 						  fog: false" rotation="0 45 -180" scale="-1 1 1">
 				</a-entity>
 				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
-			</a-entity>
-			<a-entity position="0 1.6 0" rotation="0 180 0">
-			<a-camera id="theCam">
-				 <a-entity cursor="fuse: true; fuseTimeout: 500"
-					    position="0 0 -20"
-					    geometry="primitive: ring"
-					    material="color: white; shader: flat">
-				  </a-entity>
-			</a-camera>
 			</a-entity>
 		</a-scene>
 	</div>

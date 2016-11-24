@@ -65,8 +65,8 @@
 						<a-camera id="theCam" position="-250 0 0" rotation="0 -90 0">
 							 <a-entity cursor="fuse: true; fuseTimeout: 500"
 								    position="0 0 -20"
-								    geometry="primitive:circle; radius:1;"
-								    material="color: white; shader: flat">
+								    geometry="primitive:circle; radius:0.5;"
+								    material="color: white; shader: flat;opacity:0.5;">
 							  </a-entity>
 						</a-camera>
 					</a-entity>
@@ -82,7 +82,7 @@
 						  fog: false" rotation="0 45 -180" scale="-1 1 1">
 				</a-entity>
 				<a-entity id="directionalLight" light="color:#BBB;type:directional;intensity:2" position="0 50 -400"></a-entity>
-				<a-entity id="directionalLight-2" light="color:#BBB;type:ambient;intensity:0.06;decay:1" position="0 0 0" ></a-entity>
+				<a-entity id="ambientLight" light="color:#BBB;type:ambient;intensity:0.06;decay:1" position="0 0 0" ></a-entity>
 			</a-entity>
 		</a-scene>
 	</div>

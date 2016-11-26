@@ -67,10 +67,14 @@
 								    position="0 0 -20"
 								    geometry="primitive:circle; radius:0.5;"
 								    material="color: white; shader:flat;opacity:0.5;">
+								    <a-animation begin="click" easing="ease-in" attribute="scale"
+									       fill="backwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+								    <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+									       fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
 							  </a-entity>
 						</a-entity>
 					</a-entity>
-					  <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" fill="forwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+					<a-animation attribute="rotation" dur="400000" fill="forwards" easing="linear" to="0 360 0" repeat="indefinite"></a-animation>  
 				</a-entity>
 				<a-entity id="starBG" geometry="primitive: sphere;
 						  radius: 7000;

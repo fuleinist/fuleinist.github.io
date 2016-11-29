@@ -10,14 +10,25 @@
 	<div class="scene-container" style="height: 100%; width: 100%">
 		<a-scene stats>
 			<a-assets>
-				<a-asset-item id="tp-tower-obj" src="assets/101-tower.obj"></a-asset-item>
-				<a-asset-item id="tp-tower-mtl" src="assets/101-tower.mtl"></a-asset-item>
+				<a-asset-item id="tp-tower" src="assets/tp-tower.dae"></a-asset-item>
 			</a-assets>		
 			<a-entity id="101 Tower">
-				<a-entity obj-model="obj: #tp-tower-obj; mtl: #tp-tower-mtl"></a-entity>
+				<a-entity collada-model="#tp-tower"></a-entity>
 			</a-entity>
 			<a-sky color="#6EBAA7"></a-sky>
-			<a-entity camera="userHeight: 1.6" look-controls position="0 400 180"></a-entity>
+			<a-entity id="Up View" position="0 40 0">
+				<a-entity camera="userHeight: 1.6" look-controls position="0 0 200"></a-entity>
+				<a-animation attribute="rotation"
+				dur="30000"
+				fill="forwards"
+				easing="linear"
+				to="0 360 0"
+				repeat="indefinite"></a-animation>
+				<a-animation attribute="position"
+				dur="60000"
+				fill="forwards"
+				to="0 500 0"></a-animation>
+			</a-entity>
 		</a-scene>
 	</div>
 </body>

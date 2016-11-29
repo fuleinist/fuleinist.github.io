@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Aframe 101 Tower</title>
+    <script type="text/javascript" src="js/aframe.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+	<div class="scene-container" style="height: 100%; width: 100%">
+		<a-scene stats>
+			<a-assets>
+				<a-asset-item id="tp-tower-obj" src="assets/tp-tower.obj"></a-asset-item>
+				<a-asset-item id="tp-tower-mtl" src="assets/tp-tower.mtl"></a-asset-item>
+			</a-assets>		
+			<a-entity id="101 Tower">
+				<a-entity obj-model="obj: #tp-tower-obj; mtl: #tp-tower-mtl"></a-entity>
+			</a-entity>
+		</a-scene>
+	</div>
+</body>
+</html>

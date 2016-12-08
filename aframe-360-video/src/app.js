@@ -3,7 +3,7 @@ var vid360 = React.createClass({
     return (
 		<a-scene id="myscene">
 		  <a-assets>
-			<video crossorigin autoplay loop muted webkit-playsinline playsinline id="video1"  src="http://104.199.225.214/Tests/aframe-360-video/Space%20Engine%20in%20Immersive%20360%20Video.mp4" ></video>
+			<video crossorigin autoplay loop muted webkit-playsinline playsinline id="video1"  src="https://ucarecdn.com/bcece0a8-86ce-460e-856b-40dac4875f15/" ></video>
 		  </a-assets>
 		   <a-videosphere src="#video1"></a-videosphere>
 		</a-scene>

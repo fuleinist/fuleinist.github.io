@@ -6,5 +6,5 @@ var Entity = React.createClass({
     );
   }
 });
-console.log(Entity);
+
 ReactDOM.render(<Entity />, document.querySelector('#entities'));

@@ -12,5 +12,5 @@ var vid360 = React.createClass({
     );
   }
 });
-
+console.log(vid360);
 ReactDOM.render(<vid360 />, document.querySelector('#container'));

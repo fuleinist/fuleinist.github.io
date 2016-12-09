@@ -1,15 +1,10 @@
-var Vid360 = React.createClass({
+var Entity = React.createClass({
   render: function() {
-    var dom =  ( <a-scene id="myscene">
-			  <a-assets>
-				<video crossOrigin autoPlay loop muted webkit-playsinline playsinline id="video1"  src="ClashofClans360.mp4" ></video>
-			  </a-assets>
-			   <a-videosphere src="#video1"></a-videosphere>
-		</a-scene>)
+    var entity =  (<a-videosphere src="#video1"></a-videosphere>)
     return (
-	dom
+	entity
     );
   }
 });
-console.log(Vid360);
-ReactDOM.render(<Vid360 />, document.querySelector('#container'));
+console.log(Entity);
+ReactDOM.render(<Entity />, document.querySelector('#entities'));

@@ -1,4 +1,4 @@
-var vid360 = React.createClass({
+var Vid360 = React.createClass({
   render: function() {
     var dom =  (<h3>???</h3>)
     return (
@@ -6,5 +6,5 @@ var vid360 = React.createClass({
     );
   }
 });
-console.log(vid360);
-ReactDOM.render(<vid360 />, document.querySelector('#container'));
+console.log(Vid360);
+ReactDOM.render(<Vid360 />, document.querySelector('#container'));

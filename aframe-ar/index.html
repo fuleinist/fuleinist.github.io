@@ -4,10 +4,9 @@
 <body style="margin : 0px; overflow: hidden;">
 	<a-scene embedded arjs="sourceType: webcam;">
 	    <a-assets>
-		  <a-asset-item id="car" src="assets/Convertible.gltf"></a-asset-item>
 		</a-assets>
 		<a-marker-camera preset="hiro">
-			<a-entity gltf-model="#car" scale="0.1 0.1 0.1"></a-entity>
+			<a-entity gltf-model="src:assets/Convertible.gltf;" scale="0.1 0.1 0.1"></a-entity>
 		</a-marker-camera>
 	</a-scene>
 </body>

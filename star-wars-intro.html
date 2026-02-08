@@ -149,17 +149,27 @@
             padding: 100px 20px;
             background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
             position: relative;
-            display: none;
-            animation: fadeIn 2s ease-out 65s forwards;
+            display: block;
+            opacity: 0;
+            transform: perspective(800px) rotateX(45deg) translateY(100vh);
+            transform-origin: center top;
+            animation: rollIn 3s ease-out 72s forwards;
         }
 
         .projects-section.visible {
-            display: block;
+            opacity: 1;
+            transform: perspective(800px) rotateX(45deg) translateY(0);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes rollIn {
+            0% {
+                opacity: 0;
+                transform: perspective(800px) rotateX(45deg) translateY(100vh);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(800px) rotateX(45deg) translateY(0);
+            }
         }
 
         .section-title {
@@ -248,12 +258,18 @@
             min-height: 100vh;
             padding: 100px 20px;
             background: #000;
-            display: none;
-            animation: fadeIn 2s ease-out 70s forwards;
+            display: block;
+            opacity: 0;
+            animation: fadeInStats 2s ease-out 78s forwards;
         }
 
         .stats-section.visible {
-            display: block;
+            opacity: 1;
+        }
+
+        @keyframes fadeInStats {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .stats-grid {
@@ -590,14 +606,20 @@
         // Show sections after intro
         function showSections() {
             document.getElementById('projectsSection').classList.add('visible');
-            document.getElementById('statsSection').classList.add('visible');
             document.getElementById('crawlContainer').style.display = 'none';
-            animateStats();
+            // Stats animate in after projects (78s from start)
+            setTimeout(() => {
+                document.getElementById('statsSection').classList.add('visible');
+                animateStats();
+            }, 6000);
         }
 
         // Skip intro
         function skipIntro() {
-            showSections();
+            document.getElementById('crawlContainer').style.display = 'none';
+            document.getElementById('projectsSection').classList.add('visible');
+            document.getElementById('statsSection').classList.add('visible');
+            animateStats();
         }
 
         // Load projects from JSON
@@ -623,8 +645,8 @@
             }
         }
 
-        // Auto-show sections after crawl
-        setTimeout(showSections, 65000);
+        // Auto-show sections after crawl finishes (logo 8s + crawl 60s + buffer 4s = 72s)
+        setTimeout(showSections, 72000);
 
         // Initialize
         createStarfield();

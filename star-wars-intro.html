@@ -476,77 +476,8 @@
     <section class="projects-section" id="projectsSection">
         <h2 class="section-title">Featured Projects</h2>
         
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-icon">📡</div>
-                <h3 class="project-title">RssFeedRead</h3>
-                <p class="project-desc">Modern RSS feed reader with real-time updates and intelligent content filtering. Built for the Windows ecosystem with responsive design.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Win8 Apps</span>
-                    <span class="tech-tag">RSS</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">🌍</div>
-                <h3 class="project-title">A-Frame Earth Moon</h3>
-                <p class="project-desc">Interactive WebVR experience showing Earth and Moon in space. Built with A-Frame for immersive browser-based virtual reality.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">A-Frame</span>
-                    <span class="tech-tag">WebVR</span>
-                    <span class="tech-tag">HTML</span>
-                    <span class="tech-tag">Three.js</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">🔥</div>
-                <h3 class="project-title">Nuxt Firebase Integration</h3>
-                <p class="project-desc">Full-stack Vue.js application with Firebase backend integration. Demonstrates server-side rendering with real-time database features.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">Vue.js</span>
-                    <span class="tech-tag">Nuxt</span>
-                    <span class="tech-tag">Firebase</span>
-                    <span class="tech-tag">SSR</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">⚛️</div>
-                <h3 class="project-title">React RxJS Hooks</h3>
-                <p class="project-desc">Collection of useful React hooks powered by RxJS for reactive programming. Simplifies state management with observable streams.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">React</span>
-                    <span class="tech-tag">RxJS</span>
-                    <span class="tech-tag">Hooks</span>
-                    <span class="tech-tag">JavaScript</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">🎬</div>
-                <h3 class="project-title">FFmpeg Canvas Recorder</h3>
-                <p class="project-desc">TypeScript-based canvas recording solution using FFmpeg. Captures HTML5 canvas animations and converts to video formats.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">FFmpeg</span>
-                    <span class="tech-tag">Canvas</span>
-                    <span class="tech-tag">Video</span>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-icon">☁️</div>
-                <h3 class="project-title">Lambda Video Pipeline</h3>
-                <p class="project-desc">Serverless video processing pipeline using AWS Lambda. Automated video recording and transcoding with cloud infrastructure.</p>
-                <div class="project-tech">
-                    <span class="tech-tag">AWS Lambda</span>
-                    <span class="tech-tag">TypeScript</span>
-                    <span class="tech-tag">Serverless</span>
-                    <span class="tech-tag">Video</span>
-                </div>
-            </div>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be loaded from projects.json -->
         </div>
     </section>
 
@@ -669,12 +600,36 @@
             showSections();
         }
 
+        // Load projects from JSON
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                const grid = document.getElementById('projectsGrid');
+                
+                grid.innerHTML = projects.map(project => `
+                    <div class="project-card">
+                        <div class="project-icon">${project.icon}</div>
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-desc">${project.description}</p>
+                        <div class="project-tech">
+                            ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Failed to load projects:', error);
+                document.getElementById('projectsGrid').innerHTML = '<p style="color: #ffe81f; text-align: center;">Failed to load projects. Please refresh.</p>';
+            }
+        }
+
         // Auto-show sections after crawl
         setTimeout(showSections, 65000);
 
         // Initialize
         createStarfield();
         createContributionGraph();
+        loadProjects();
     </script>
 </body>
 </html>

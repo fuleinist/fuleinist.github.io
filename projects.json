@@ -1,0 +1,38 @@
+[
+  {
+    "icon": "📡",
+    "title": "RssFeedRead",
+    "description": "Modern RSS feed reader with real-time updates and intelligent content filtering. Built for the Windows ecosystem with responsive design.",
+    "tech": ["JavaScript", "Win8 Apps", "RSS"]
+  },
+  {
+    "icon": "🌍",
+    "title": "A-Frame Earth Moon",
+    "description": "Interactive WebVR experience showing Earth and Moon in space. Built with A-Frame for immersive browser-based virtual reality.",
+    "tech": ["A-Frame", "WebVR", "HTML", "Three.js"]
+  },
+  {
+    "icon": "🔥",
+    "title": "Nuxt Firebase Integration",
+    "description": "Full-stack Vue.js application with Firebase backend integration. Demonstrates server-side rendering with real-time database features.",
+    "tech": ["Vue.js", "Nuxt", "Firebase", "SSR"]
+  },
+  {
+    "icon": "⚛️",
+    "title": "React RxJS Hooks",
+    "description": "Collection of useful React hooks powered by RxJS for reactive programming. Simplifies state management with observable streams.",
+    "tech": ["React", "RxJS", "Hooks", "JavaScript"]
+  },
+  {
+    "icon": "🎬",
+    "title": "FFmpeg Canvas Recorder",
+    "description": "TypeScript-based canvas recording solution using FFmpeg. Captures HTML5 canvas animations and converts to video formats.",
+    "tech": ["TypeScript", "FFmpeg", "Canvas", "Video"]
+  },
+  {
+    "icon": "☁️",
+    "title": "Lambda Video Pipeline",
+    "description": "Serverless video processing pipeline using AWS Lambda. Automated video recording and transcoding with cloud infrastructure.",
+    "tech": ["AWS Lambda", "TypeScript", "Serverless", "Video"]
+  }
+]

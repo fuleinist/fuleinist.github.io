@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chris Chen - Full Stack Developer | GenAI & LLM Advocate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -39,8 +42,15 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Opening Crawl Container */
@@ -77,14 +87,16 @@
         }
 
         @keyframes logoZoom {
-            0% { 
+            0% {
                 opacity: 1;
                 transform: translate(-50%, -50%) scale(1.5);
             }
+
             80% {
                 opacity: 1;
             }
-            100% { 
+
+            100% {
                 opacity: 0;
                 transform: translate(-50%, -50%) scale(0.1);
             }
@@ -93,11 +105,11 @@
         /* The Crawl Text */
         .crawl {
             position: absolute;
-            bottom: -100%;
+            bottom: -210%;
             width: 100%;
             text-align: center;
             transform-origin: 50% 100%;
-            transform: rotateX(25deg);
+            transform: rotateX(45deg);
             animation: crawl 60s linear 9s forwards;
         }
 
@@ -138,6 +150,7 @@
             0% {
                 bottom: -100%;
             }
+
             100% {
                 bottom: 200%;
             }
@@ -166,6 +179,7 @@
                 opacity: 0;
                 transform: perspective(800px) rotateX(45deg) translateY(100vh);
             }
+
             100% {
                 opacity: 1;
                 transform: perspective(800px) rotateX(45deg) translateY(0);
@@ -258,18 +272,12 @@
             min-height: 100vh;
             padding: 100px 20px;
             background: #000;
-            display: block;
-            opacity: 0;
-            animation: fadeInStats 2s ease-out 78s forwards;
+            display: none;
+            animation: fadeIn 2s ease-out 70s forwards;
         }
 
         .stats-section.visible {
-            opacity: 1;
-        }
-
-        @keyframes fadeInStats {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+            display: block;
         }
 
         .stats-grid {
@@ -302,7 +310,9 @@
         }
 
         @keyframes rotate {
-            100% { transform: rotate(360deg); }
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .stat-number {
@@ -352,18 +362,36 @@
             transform: scale(1.5);
         }
 
-        .contribution-cell.level-1 { background: #0e4429; }
-        .contribution-cell.level-2 { background: #006d32; }
-        .contribution-cell.level-3 { background: #26a641; }
-        .contribution-cell.level-4 { background: #39d353; }
+        .contribution-cell.level-1 {
+            background: #0e4429;
+        }
+
+        .contribution-cell.level-2 {
+            background: #006d32;
+        }
+
+        .contribution-cell.level-3 {
+            background: #26a641;
+        }
+
+        .contribution-cell.level-4 {
+            background: #39d353;
+        }
 
         .contribution-cell.active {
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         /* CTA Buttons */
@@ -436,25 +464,26 @@
             .sw-logo h1 {
                 font-size: 12vw;
             }
-            
+
             .title {
                 font-size: 2.5rem;
             }
-            
+
             .crawl-text {
                 font-size: 1.5rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
-            
+
             .stat-number {
                 font-size: 2.5rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Starfield Background -->
     <div class="starfield" id="starfield"></div>
@@ -467,21 +496,27 @@
         <div class="sw-logo">
             <h1>Chris Chen</h1>
         </div>
-        
+
         <div class="crawl">
             <div class="crawl-content">
                 <p class="episode">Episode VII</p>
                 <h2 class="title">The Rise of Full Stack</h2>
-                
+
                 <div class="crawl-text">
-                    <p>In a galaxy of rapidly evolving technology, one developer stands at the intersection of enterprise excellence and cutting-edge innovation.</p>
-                    
-                    <p>Chris Chen, a seasoned Full Stack Developer and Feature Shipper, has navigated the vast expanse from Salesforce enterprise solutions to the frontier of Generative AI and Large Language Models.</p>
-                    
-                    <p>With certified expertise in Force.com and Platform Development, he brings battle-tested experience to every mission. But the journey doesn't end there...</p>
-                    
-                    <p>Armed with modern JavaScript frameworks, cloud architecture, and AI integration skills, Chris ships features that matter. From VR experiences to AI agents, from REST APIs to real-time systems.</p>
-                    
+                    <p>In a galaxy of rapidly evolving technology, one developer stands at the intersection of
+                        enterprise excellence and cutting-edge innovation.</p>
+
+                    <p>Chris Chen, a seasoned Full Stack Developer and Feature Shipper, has navigated the vast expanse
+                        from Salesforce enterprise solutions to the frontier of Generative AI and Large Language Models.
+                    </p>
+
+                    <p>With certified expertise in Force.com and Platform Development, he brings battle-tested
+                        experience to every mission. But the journey doesn't end there...</p>
+
+                    <p>Armed with modern JavaScript frameworks, cloud architecture, and AI integration skills, Chris
+                        ships features that matter. From VR experiences to AI agents, from REST APIs to real-time
+                        systems.</p>
+
                     <p>The force is strong with this one. Witness the evolution...</p>
                 </div>
             </div>
@@ -491,7 +526,7 @@
     <!-- Projects Showcase -->
     <section class="projects-section" id="projectsSection">
         <h2 class="section-title">Featured Projects</h2>
-        
+
         <div class="projects-grid" id="projectsGrid">
             <!-- Projects will be loaded from projects.json -->
         </div>
@@ -500,7 +535,7 @@
     <!-- Live Coding Stats -->
     <section class="stats-section" id="statsSection">
         <h2 class="section-title">GitHub Activity</h2>
-        
+
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-number" data-target="75">0</div>
@@ -521,13 +556,15 @@
         </div>
 
         <div class="contributions-container">
-            <h3 style="font-family: 'Orbitron', sans-serif; color: #ffe81f; margin-bottom: 20px; text-align: center;">Contribution Activity</h3>
+            <h3 style="font-family: 'Orbitron', sans-serif; color: #ffe81f; margin-bottom: 20px; text-align: center;">
+                Contribution Activity</h3>
             <div class="contribution-graph" id="contributionGraph"></div>
         </div>
 
         <div class="cta-container">
             <a href="https://github.com/fuleinist" class="cta-button" target="_blank">View GitHub Profile</a>
-            <a href="https://www.linkedin.com/in/chris-chen-08048422/" class="cta-button" target="_blank">Connect on LinkedIn</a>
+            <a href="https://www.linkedin.com/in/chris-chen-08048422/" class="cta-button" target="_blank">Connect on
+                LinkedIn</a>
             <a href="mailto:chris@example.com" class="cta-button">Get In Touch</a>
         </div>
     </section>
@@ -552,11 +589,11 @@
         function createContributionGraph() {
             const graph = document.getElementById('contributionGraph');
             const levels = ['', 'level-1', 'level-2', 'level-3', 'level-4'];
-            
+
             for (let i = 0; i < 364; i++) {
                 const cell = document.createElement('div');
                 cell.className = 'contribution-cell';
-                
+
                 // Random activity level with bias toward activity
                 const rand = Math.random();
                 let level = 0;
@@ -564,17 +601,17 @@
                 if (rand > 0.6) level = 2;
                 if (rand > 0.8) level = 3;
                 if (rand > 0.95) level = 4;
-                
+
                 if (level > 0) {
                     cell.classList.add(levels[level]);
                 }
-                
+
                 // Add animation to some cells
                 if (Math.random() > 0.9) {
                     cell.classList.add('active');
                     cell.style.animationDelay = Math.random() * 2 + 's';
                 }
-                
+
                 graph.appendChild(cell);
             }
         }
@@ -582,13 +619,13 @@
         // Animate stats counter
         function animateStats() {
             const counters = document.querySelectorAll('.stat-number');
-            
+
             counters.forEach(counter => {
                 const target = parseInt(counter.getAttribute('data-target'));
                 const duration = 2000;
                 const step = target / (duration / 16);
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     current += step;
                     if (current < target) {
@@ -598,7 +635,7 @@
                         counter.textContent = target;
                     }
                 };
-                
+
                 updateCounter();
             });
         }
@@ -628,7 +665,7 @@
                 const response = await fetch('projects.json');
                 const projects = await response.json();
                 const grid = document.getElementById('projectsGrid');
-                
+
                 grid.innerHTML = projects.map(project => `
                     <div class="project-card">
                         <div class="project-icon">${project.icon}</div>
@@ -654,4 +691,5 @@
         loadProjects();
     </script>
 </body>
+
 </html>

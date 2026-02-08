@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chris Chen - Full Stack Developer | GenAI & LLM Advocate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #ffe81f;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Starfield Background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Opening Crawl Container */
+        .crawl-container {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 400px;
+            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
+        }
+
+        /* The Star Wars Logo */
+        .sw-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            animation: logoZoom 8s ease-out 1s forwards;
+            z-index: 10;
+        }
+
+        .sw-logo h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 8vw;
+            font-weight: 900;
+            color: #ffe81f;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 20px rgba(255, 232, 31, 0.5);
+            -webkit-text-stroke: 2px #ffe81f;
+        }
+
+        @keyframes logoZoom {
+            0% { 
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.5);
+            }
+            80% {
+                opacity: 1;
+            }
+            100% { 
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.1);
+            }
+        }
+
+        /* The Crawl Text */
+        .crawl {
+            position: absolute;
+            bottom: -100%;
+            width: 100%;
+            text-align: center;
+            transform-origin: 50% 100%;
+            transform: rotateX(25deg);
+            animation: crawl 60s linear 9s forwards;
+        }
+
+        .crawl-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .episode {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffe81f;
+            letter-spacing: 0.3em;
+        }
+
+        .title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .crawl-text {
+            font-size: 2.2rem;
+            line-height: 1.8;
+            text-align: justify;
+            color: #ffe81f;
+        }
+
+        .crawl-text p {
+            margin-bottom: 2rem;
+        }
+
+        @keyframes crawl {
+            0% {
+                bottom: -100%;
+            }
+            100% {
+                bottom: 200%;
+            }
+        }
+
+        /* Item Loops - Projects Showcase */
+        .projects-section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            position: relative;
+            display: none;
+            animation: fadeIn 2s ease-out 65s forwards;
+        }
+
+        .projects-section.visible {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #ffe81f;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 232, 31, 0.05);
+            border: 1px solid rgba(255, 232, 31, 0.3);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 232, 31, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 232, 31, 0.2);
+            border-color: #ffe81f;
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #ffe81f;
+        }
+
+        .project-desc {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 232, 31, 0.2);
+            color: #ffe81f;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Live Coding Stats Section */
+        .stats-section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            background: #000;
+            display: none;
+            animation: fadeIn 2s ease-out 70s forwards;
+        }
+
+        .stats-section.visible {
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(255, 232, 31, 0.1), rgba(255, 232, 31, 0.02));
+            border: 1px solid rgba(255, 232, 31, 0.3);
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(255, 232, 31, 0.1), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .stat-number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffe81f;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #888;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contribution Graph */
+        .contributions-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 232, 31, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 232, 31, 0.2);
+        }
+
+        .contribution-graph {
+            display: grid;
+            grid-template-columns: repeat(52, 1fr);
+            gap: 3px;
+            margin-top: 20px;
+        }
+
+        .contribution-cell {
+            aspect-ratio: 1;
+            border-radius: 2px;
+            background: #161b22;
+            transition: all 0.3s ease;
+        }
+
+        .contribution-cell:hover {
+            transform: scale(1.5);
+        }
+
+        .contribution-cell.level-1 { background: #0e4429; }
+        .contribution-cell.level-2 { background: #006d32; }
+        .contribution-cell.level-3 { background: #26a641; }
+        .contribution-cell.level-4 { background: #39d353; }
+
+        .contribution-cell.active {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            background: transparent;
+            border: 2px solid #ffe81f;
+            color: #ffe81f;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #ffe81f;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .cta-button:hover {
+            color: #000;
+        }
+
+        .cta-button:hover::before {
+            left: 0;
+        }
+
+        /* Skip Button */
+        .skip-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 232, 31, 0.1);
+            border: 1px solid #ffe81f;
+            color: #ffe81f;
+            font-family: 'Rajdhani', sans-serif;
+            cursor: pointer;
+            border-radius: 5px;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .skip-btn:hover {
+            background: #ffe81f;
+            color: #000;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sw-logo h1 {
+                font-size: 12vw;
+            }
+            
+            .title {
+                font-size: 2.5rem;
+            }
+            
+            .crawl-text {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Starfield Background -->
+    <div class="starfield" id="starfield"></div>
+
+    <!-- Skip Button -->
+    <button class="skip-btn" onclick="skipIntro()">Skip Intro ↷</button>
+
+    <!-- Star Wars Opening Crawl -->
+    <div class="crawl-container" id="crawlContainer">
+        <div class="sw-logo">
+            <h1>Chris Chen</h1>
+        </div>
+        
+        <div class="crawl">
+            <div class="crawl-content">
+                <p class="episode">Episode VII</p>
+                <h2 class="title">The Rise of Full Stack</h2>
+                
+                <div class="crawl-text">
+                    <p>In a galaxy of rapidly evolving technology, one developer stands at the intersection of enterprise excellence and cutting-edge innovation.</p>
+                    
+                    <p>Chris Chen, a seasoned Full Stack Developer and Feature Shipper, has navigated the vast expanse from Salesforce enterprise solutions to the frontier of Generative AI and Large Language Models.</p>
+                    
+                    <p>With certified expertise in Force.com and Platform Development, he brings battle-tested experience to every mission. But the journey doesn't end there...</p>
+                    
+                    <p>Armed with modern JavaScript frameworks, cloud architecture, and AI integration skills, Chris ships features that matter. From VR experiences to AI agents, from REST APIs to real-time systems.</p>
+                    
+                    <p>The force is strong with this one. Witness the evolution...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Showcase -->
+    <section class="projects-section" id="projectsSection">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon">🤖</div>
+                <h3 class="project-title">AI Agent Orchestrator</h3>
+                <p class="project-desc">OpenClaw-powered automation system with MCP integration. Automates workflows, manages sub-agents, and integrates external tools seamlessly.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MCP</span>
+                    <span class="tech-tag">LLM</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📡</div>
+                <h3 class="project-title">RssFeedRead</h3>
+                <p class="project-desc">Modern RSS feed reader with real-time updates and intelligent content filtering. Built for the Windows ecosystem with responsive design.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Win8 Apps</span>
+                    <span class="tech-tag">RSS</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🎛️</div>
+                <h3 class="project-title">jQuery Knob</h3>
+                <p class="project-desc">Touchable, downward compatible jQuery dial component. Clean UI element for data visualization and control interfaces.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">jQuery</span>
+                    <span class="tech-tag">UI/UX</span>
+                    <span class="tech-tag">Touch</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🌐</div>
+                <h3 class="project-title">A-Frame VR Experiences</h3>
+                <p class="project-desc">Collection of immersive WebVR experiences including 360° video, AR integration, and interactive Earth-Moon simulations.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">A-Frame</span>
+                    <span class="tech-tag">WebVR</span>
+                    <span class="tech-tag">Three.js</span>
+                    <span class="tech-tag">AR</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">⚡</div>
+                <h3 class="project-title">Salesforce Integration Suite</h3>
+                <p class="project-desc">Enterprise-grade REST API integrations and custom Lightning Web Components. Bridging CRM data with modern frontend frameworks.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Salesforce</span>
+                    <span class="tech-tag">Apex</span>
+                    <span class="tech-tag">LWC</span>
+                    <span class="tech-tag">REST API</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📊</div>
+                <h3 class="project-title">CodeIgniter REST Server</h3>
+                <p class="project-desc">Full-featured RESTful API framework extension for CodeIgniter. Simplifies API development with standardized responses.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">CodeIgniter</span>
+                    <span class="tech-tag">REST</span>
+                    <span class="tech-tag">API</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Coding Stats -->
+    <section class="stats-section" id="statsSection">
+        <h2 class="section-title">GitHub Activity</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" data-target="75">0</div>
+                <div class="stat-label">Repositories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="64">0</div>
+                <div class="stat-label">Stars Earned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="9">0</div>
+                <div class="stat-label">Followers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" data-target="16">0</div>
+                <div class="stat-label">Following</div>
+            </div>
+        </div>
+
+        <div class="contributions-container">
+            <h3 style="font-family: 'Orbitron', sans-serif; color: #ffe81f; margin-bottom: 20px; text-align: center;">Contribution Activity</h3>
+            <div class="contribution-graph" id="contributionGraph"></div>
+        </div>
+
+        <div class="cta-container">
+            <a href="https://github.com/fuleinist" class="cta-button" target="_blank">View GitHub Profile</a>
+            <a href="https://www.linkedin.com/in/chris-chen-08048422/" class="cta-button" target="_blank">Connect on LinkedIn</a>
+            <a href="mailto:chris@example.com" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <script>
+        // Generate starfield
+        function createStarfield() {
+            const starfield = document.getElementById('starfield');
+            for (let i = 0; i < 200; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.animationDelay = Math.random() * 2 + 's';
+                starfield.appendChild(star);
+            }
+        }
+
+        // Generate contribution graph
+        function createContributionGraph() {
+            const graph = document.getElementById('contributionGraph');
+            const levels = ['', 'level-1', 'level-2', 'level-3', 'level-4'];
+            
+            for (let i = 0; i < 364; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'contribution-cell';
+                
+                // Random activity level with bias toward activity
+                const rand = Math.random();
+                let level = 0;
+                if (rand > 0.4) level = 1;
+                if (rand > 0.6) level = 2;
+                if (rand > 0.8) level = 3;
+                if (rand > 0.95) level = 4;
+                
+                if (level > 0) {
+                    cell.classList.add(levels[level]);
+                }
+                
+                // Add animation to some cells
+                if (Math.random() > 0.9) {
+                    cell.classList.add('active');
+                    cell.style.animationDelay = Math.random() * 2 + 's';
+                }
+                
+                graph.appendChild(cell);
+            }
+        }
+
+        // Animate stats counter
+        function animateStats() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += step;
+                    if (current < target) {
+                        counter.textContent = Math.floor(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        }
+
+        // Show sections after intro
+        function showSections() {
+            document.getElementById('projectsSection').classList.add('visible');
+            document.getElementById('statsSection').classList.add('visible');
+            document.getElementById('crawlContainer').style.display = 'none';
+            animateStats();
+        }
+
+        // Skip intro
+        function skipIntro() {
+            showSections();
+        }
+
+        // Auto-show sections after crawl
+        setTimeout(showSections, 65000);
+
+        // Initialize
+        createStarfield();
+        createContributionGraph();
+    </script>
+</body>
+</html>

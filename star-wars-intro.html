@@ -19,7 +19,7 @@
             background: #000;
             color: #ffe81f;
             font-family: 'Rajdhani', sans-serif;
-            overflow-x: hidden;
+            overflow: hidden;
             min-height: 100vh;
         }
 
@@ -59,7 +59,6 @@
             height: 100vh;
             overflow: hidden;
             perspective: 400px;
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
         }
 
         /* The Star Wars Logo */
@@ -105,22 +104,21 @@
         /* The Crawl Text */
         .crawl {
             position: absolute;
-            bottom: -210%;
             width: 100%;
             text-align: center;
             transform-origin: 50% 100%;
-            transform: rotateX(45deg);
-            animation: crawl 60s linear 9s forwards;
+            transform: rotateX(90deg) translateY(125vh);
+            animation: crawl 60s linear 10s forwards;
         }
 
         .crawl-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         .episode {
-            font-size: 2.5rem;
+            font-size: 3.75rem;
             margin-bottom: 1rem;
             color: #ffe81f;
             letter-spacing: 0.3em;
@@ -128,7 +126,7 @@
 
         .title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 4rem;
+            font-size: 6rem;
             font-weight: 700;
             margin-bottom: 3rem;
             text-transform: uppercase;
@@ -136,7 +134,7 @@
         }
 
         .crawl-text {
-            font-size: 2.2rem;
+            font-size: 3.3rem;
             line-height: 1.8;
             text-align: justify;
             color: #ffe81f;
@@ -148,11 +146,11 @@
 
         @keyframes crawl {
             0% {
-                bottom: -100%;
+                transform: rotateX(90deg) translateY(125vh);
             }
 
             100% {
-                bottom: 200%;
+                transform: rotateX(90deg) translateY(-100vh);
             }
         }
 
@@ -164,25 +162,25 @@
             position: relative;
             display: block;
             opacity: 0;
-            transform: perspective(800px) rotateX(45deg) translateY(100vh);
+            transform: perspective(800px) translateY(100vh);
             transform-origin: center top;
             animation: rollIn 3s ease-out 72s forwards;
         }
 
         .projects-section.visible {
             opacity: 1;
-            transform: perspective(800px) rotateX(45deg) translateY(0);
+            transform: perspective(800px) translateY(0);
         }
 
         @keyframes rollIn {
             0% {
                 opacity: 0;
-                transform: perspective(800px) rotateX(45deg) translateY(100vh);
+                transform: perspective(800px) translateY(100vh);
             }
 
             100% {
                 opacity: 1;
-                transform: perspective(800px) rotateX(45deg) translateY(0);
+                transform: perspective(800px) translateY(0);
             }
         }
 
@@ -198,7 +196,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
@@ -499,7 +497,7 @@
 
         <div class="crawl">
             <div class="crawl-content">
-                <p class="episode">Episode VII</p>
+                <p class="episode">Episode C</p>
                 <h2 class="title">The Rise of Full Stack</h2>
 
                 <div class="crawl-text">

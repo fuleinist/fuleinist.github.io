@@ -1,6 +1,6 @@
 {
   "login": "fuleinist",
-  "generatedAt": "2026-11-06T10:54:55.671Z",
+  "generatedAt": "2026-11-07T10:13:23.185Z",
   "profile": {
     "name": "Chris Chen",
     "bio": "Full Stack Web Developer",
@@ -13,9 +13,9 @@
   },
   "stats": {
     "ownRepos": 155,
-    "totalStars": 39,
+    "totalStars": 38,
     "totalForks": 5,
-    "contributions": 1976
+    "contributions": 1977
   },
   "languages": [
     {
@@ -89,17 +89,6 @@
       "forks": 1,
       "pushedAt": "2026-09-05T14:02:27Z",
       "url": "https://github.com/fuleinist/context-prune",
-      "homepage": "",
-      "topics": []
-    },
-    {
-      "name": "video-to-skill",
-      "description": "Turn any YouTube video or video file into a structured Claude Code skill — using YouTube transcripts, Whisper, or VLM frame analysis.",
-      "language": "Python",
-      "stars": 2,
-      "forks": 1,
-      "pushedAt": "2026-05-19T13:12:36Z",
-      "url": "https://github.com/fuleinist/video-to-skill",
       "homepage": "",
       "topics": []
     },
@@ -179,17 +168,23 @@
       "url": "https://github.com/fuleinist/ai-workflow-builder",
       "homepage": "",
       "topics": []
+    },
+    {
+      "name": "local-rag-bridge",
+      "description": "Unified API layer connecting local LLMs (Ollama, llama.cpp, vLLM) to existing RAG pipelines with plug-and-play embedding support.",
+      "language": "Python",
+      "stars": 1,
+      "forks": 0,
+      "pushedAt": "2026-07-10T18:10:59Z",
+      "url": "https://github.com/fuleinist/local-rag-bridge",
+      "homepage": "",
+      "topics": []
     }
   ],
   "contributions": {
-    "total": 1976,
+    "total": 1977,
     "weeks": [
       [
-        {
-          "date": "2025-11-06",
-          "count": 0,
-          "weekday": 4
-        },
         {
           "date": "2025-11-07",
           "count": 0,
@@ -2118,6 +2113,11 @@
           "date": "2026-11-06",
           "count": 1,
           "weekday": 5
+        },
+        {
+          "date": "2026-11-07",
+          "count": 1,
+          "weekday": 6
         }
       ]
     ]
